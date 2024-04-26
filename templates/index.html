@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+
+<head>
+	<title>Mercury Stereo System</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Mercury Stereo System">
+	<link rel="stylesheet" href="../static/assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../static/assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="index is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<nav id="nav">
+				<ul>
+					<li id="logo"><a href="index.html">Mercury Stereo System</a></li>
+					<li class=""><a href="https://www.pandoraunboxed.com/collections/mercury-stereo-12-preorders"
+							target="_blank">Store</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Banner -->
+		<section id="banner" class="main">
+
+			<div class="inner">
+
+				<header>
+					<h2>Stereo View Device Formatter</h2>
+				</header>
+
+			</div>
+
+		</section>
+
+		<!-- Main -->
+		<article id="main">
+
+			<section class="wrapper style3 container">
+
+				<!-- Content -->
+				<div class="content upload-file">
+					<section>
+						<header>
+							<h3><strong>Format Stereo Pairs</strong></h3>
+						</header>
+						<ol>
+							<li>Images to process should be Side-by-Side stereo pairs with no borders, in jpg format.
+								These can be output directly from Stereo Photo Maker.</li>
+							<li>Select the device on which you wish to view your images.</li>
+							<li>Upload a single jpg file or a zip file with an entire batch of images. The Zip
+								file should include only jpg files, with no folder structure.</li>
+							<li>The tool will process your image(s) and then prompt you with a download of the formatted
+								file(s). Make sure that you have any popup blockers or ad blockers turned off for this
+								page.</li>
+						</ol>
+
+						{% if file == "" %}
+						<div class="center-container">
+							<form class="upload-form" method="POST" action="/upload" enctype="multipart/form-data"
+								onsubmit="return validateForm()">
+								<label for="devices">Select a device:</label>
+								<select id="devices" class="devices" name="devices" required>
+									<option value=""></option>
+									{% for key in devices %}
+									<option value="{{ devices[key]['name'] }}">{{ devices[key]['name'] }}</option>
+									{% endfor %}
+								</select>
+								<br> <br>
+								<div class="file-upload">
+									<label for="file">Upload an Image or Zip File:</label><br>
+									<input type="file" name="file" id="file" required>
+								</div>
+
+								<div id="error">{{error}}</div>
+
+								<input type="submit" value="Upload">
+							</form>
+						</div>
+
+						{% else %}
+
+						<div class="center-container">
+							<p> Success! Download your file below.</p>
+							<a class="download-link" href="{{file}}" download>
+								<button>Download</button>
+							</a>
+							<br>
+							<a href="/">Want to upload another file?</a>
+						</div>
+
+						{% endif %}
+
+					</section>
+				</div>
+
+			</section>
+
+
+
+			<!-- Footer -->
+			<footer id="footer">
+
+				<ul class="copyright">
+					<li>&copy; 2023 Zach Horton</li>
+				</ul>
+
+			</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="../static/assets/js/jquery.min.js"></script>
+	<script src="../static/assets/js/jquery.dropotron.min.js"></script>
+	<script src="../static/assets/js/jquery.scrolly.min.js"></script>
+	<script src="../static/assets/js/jquery.scrollex.min.js"></script>
+	<script src="../static/assets/js/browser.min.js"></script>
+	<script src="../static/assets/js/breakpoints.min.js"></script>
+	<script src="../static/assets/js/util.js"></script>
+	<script src="../static/assets/js/main.js"></script>
+
+</body>
+
+</html>
